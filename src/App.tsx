@@ -6,15 +6,14 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import Home from "./Views/Home/Home.component";
-import Until from "./Views/Until/Until.component";
+import Home from "./View/Home/Home.component";
+import Until from "./View/Until/Until.component";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                {/*<Route path={"/create"} element={<Create/>}/>*/}
                 <Route path={"/until"} element={<Until/>}/>
             </Routes>
         </BrowserRouter>
