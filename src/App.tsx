@@ -6,8 +6,8 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import Home from "./View/Home/Home.component";
-import Until from "./View/Until/Until.component";
+import Home from "./views/Home/Home.component";
+import Until from "./views/Until/Until.component";
 
 function App() {
     return (
