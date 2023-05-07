@@ -8,13 +8,14 @@ import {
 } from "react-router-dom";
 import Home from "./views/Home/Home.component";
 import Until from "./views/Until/Until.component";
+import {routes} from "./constants/routes";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path={"/until"} element={<Until/>}/>
+                <Route path={routes.home} element={<Home/>}/>
+                <Route path={routes.until} element={<Until/>}/>
             </Routes>
         </BrowserRouter>
 

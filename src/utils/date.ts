@@ -8,6 +8,10 @@ export const isValidISODate = (stringDate: string) => {
     return date.toISOString() === stringDate;
 }
 
+export const isDateInFuture = (stringDate: string) => {
+
+}
+
 export const getFormattedDateTime = (date: Date) => {
     return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
 }
