@@ -39,7 +39,7 @@ const HelpModal = ({
                 </IconButton>
                 How it works?
                 How to create a countdown?
-                Link to create a countdown / Create her
+                Link to create a countdown / Create here
 
             </DialogContent>
 
