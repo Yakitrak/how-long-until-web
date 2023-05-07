@@ -7,7 +7,6 @@ import {
     Navigate
 } from "react-router-dom";
 import Home from "./views/Home/Home.component";
-import Create from "./views/Create/Create.component";
 import Until from "./views/Until/Until.component";
 import {routes} from "./constants/routes";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
@@ -19,7 +18,6 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path={routes.HOME} element={<Home/>}/>
-                <Route path={routes.CREATE} element={<Create/>}/>
                 <Route path={routes.UNTIL} element={<Until/>}/>
                 <Route path="*" element={ <Navigate to={routes.HOME} replace />} />
             </Routes>
@@ -29,5 +27,4 @@ function App() {
 
     );
 }
-
 export default App;

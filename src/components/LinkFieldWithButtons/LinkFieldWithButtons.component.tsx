@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button} from "@mui/material";
+import {Button} from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
@@ -14,9 +14,6 @@ type LinkFieldWithButtonsProps = {
     visitText: string;
 }
 const LinkFieldWithButtons = ({
-                                  label,
-                                  InputProps,
-                                  url,
                                   disableButtons,
                                   copyText,
                                   visitText,

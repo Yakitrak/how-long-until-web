@@ -1,0 +1,19 @@
+$primary-color: #E1F5FE;
+
+.until-container {
+  width: 100vw;
+  height: 100vh;
+  background: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.create-own-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
