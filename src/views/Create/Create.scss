@@ -1,0 +1,57 @@
+$primary-color: #E1F5FE;
+
+.create-container {
+  width: 100vw;
+  height: 100vh;
+  background: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-input + .create-input {
+  margin-left: 20px;
+}
+
+//media query on small size, make flex-direction column
+@media (max-width: 600px) {
+  .inputs-container {
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .create-input + .create-input {
+    margin-left: 0;
+  }
+
+  .create-input {
+    width: 80vw;
+  }
+}
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.MuiTextField-root {
+  border-radius: 5px;
+}
+
+.more-info-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

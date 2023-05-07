@@ -1,4 +1,5 @@
 export const routes = {
-    home: '/',
-    until: '/until',
+    HOME: '/',
+    CREATE: '/create',
+    UNTIL: '/until',
 }

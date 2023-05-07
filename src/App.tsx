@@ -1,23 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
     BrowserRouter,
     Routes,
     Route,
+    Navigate
 } from "react-router-dom";
 import Home from "./views/Home/Home.component";
+import Create from "./views/Create/Create.component";
 import Until from "./views/Until/Until.component";
 import {routes} from "./constants/routes";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 
 function App() {
     return (
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
         <BrowserRouter>
             <Routes>
-                <Route path={routes.home} element={<Home/>}/>
-                <Route path={routes.until} element={<Until/>}/>
+                <Route path={routes.HOME} element={<Home/>}/>
+                <Route path={routes.CREATE} element={<Create/>}/>
+                <Route path={routes.UNTIL} element={<Until/>}/>
+                <Route path="*" element={ <Navigate to={routes.HOME} replace />} />
             </Routes>
         </BrowserRouter>
+        </LocalizationProvider>
+
 
     );
 }
