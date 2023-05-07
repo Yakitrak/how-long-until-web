@@ -2,14 +2,13 @@ import React, {useEffect} from 'react';
 import {Button, Snackbar, TextField, Typography} from '@mui/material';
 import dayjs, {Dayjs} from 'dayjs';
 import {DateTimePicker} from '@mui/x-date-pickers/DateTimePicker';
-import {routes} from "../../constants/routes";
 import LinkFieldWithButtons from "../../components/LinkFieldWithButtons/LinkFieldWithButtons.component";
 import "./Home.scss"
 import InfoIcon from '@mui/icons-material/Info';
 import HelpModal from "../../components/HelpModal/HelpModal.component";
 
 const Home = () => {
-    const [datetime, setDateTime] = React.useState<Dayjs | null>(dayjs().add(1, 'minute'));
+    const [datetime, setDateTime] = React.useState<Dayjs | null>(dayjs().hour(23).minute(59).second(0).millisecond(0));
     const [occasion, setOccasion] = React.useState<string>("");
     const [url, setUrl] = React.useState<string>("");
     const [isUrlValid, setIsUrlValid] = React.useState<boolean>(false);
@@ -21,15 +20,23 @@ const Home = () => {
         setOpenSnack(true)
     }
 
+    const  isDateInFuture = (date: Dayjs) => {
+        const inputDate = dayjs(date);
+        const currentDate = dayjs();
+        return inputDate.isAfter(currentDate);
+    }
+
     useEffect(() => {
         const params = new URLSearchParams();
-        if (datetime?.toISOString()) {
+        if (datetime?.toISOString() && isDateInFuture(datetime)) {
             params.append("datetime", datetime?.toISOString())
             if (occasion) {
                 params.append("occasion", occasion)
             }
             setUrl(`${window.location.origin}/until?${params.toString()}`)
             setIsUrlValid(true)
+        } else {
+            setIsUrlValid(false)
         }
     }, [datetime, occasion])
 
@@ -37,7 +44,7 @@ const Home = () => {
         <>
             <div className="create-container">
 
-                <Typography variant="h2" gutterBottom>
+                <Typography variant="h2" gutterBottom style={{marginBottom: 75}}>
                     What are you waiting for?
                 </Typography>
 
@@ -46,7 +53,7 @@ const Home = () => {
                         id="occasion"
                         label="What is the occasion?"
                         value={occasion}
-                        placeholder={'e.g.. Birthday..'}
+                        placeholder={'e.g.. my birthday'}
                         onChange={(event) => setOccasion(event.target.value)}
                         InputLabelProps={{
                             shrink: true,
@@ -82,7 +89,7 @@ const Home = () => {
 
 
                 <div className='more-info-button'>
-                    <Button variant="text" color={"info"}  startIcon={<InfoIcon/>} onClick={() => setOpenModal(true)}>
+                    <Button variant="text" color={"info"} startIcon={<InfoIcon/>} onClick={() => setOpenModal(true)}>
                         Click here for more info
                     </Button>
                 </div>

@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import dayjs from 'dayjs';
 import "./Until.scss"
 import {routes} from "../../constants/routes";
 import {Button, Typography} from '@mui/material';
 import Countdown from "../../components/Countdown/Countdown.component";
 import InfoIcon from "@mui/icons-material/Info";
+import dayjs from "dayjs";
 
 const Until = () => {
-    const [countdownTime, setCountdownTime] = useState<Date>(new Date());
+    const [countdownTime, setCountdownTime] = useState<Date | null>(null);
     const [countdownOccasion, setCountdownOccasion] = useState<string | null>("");
-    const relativeTime = require('dayjs/plugin/relativeTime')
-    dayjs.extend(relativeTime)
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -29,29 +27,33 @@ const Until = () => {
 
     return (
         <>
-            <div className="until-container">
-                <Typography variant="h4" gutterBottom>
-                    You have
-                </Typography>
+            {countdownTime && (
+                <>
+                    <div className="until-container">
+                        <Typography variant="h4" gutterBottom className={'dull-text'}>
+                            There is
+                        </Typography>
 
-                <Typography variant="h2" gutterBottom>
-                    <Countdown targetDate={countdownTime}/>
-                </Typography>
+                        <Countdown targetDate={countdownTime}/>
 
-                {countdownOccasion && (
-                    <><Typography variant="h4" gutterBottom>
-                        until
-                    </Typography><Typography variant="h2" gutterBottom>
-                        {toTitleCase(countdownOccasion)}
-                    </Typography>
-                    </>
-                )}
-            </div>
-            <div className='create-own-button'>
-                <Button variant="text" color={"info"}  startIcon={<InfoIcon/>} href={routes.HOME}>
-                    CREATE YOUR OWN
-                </Button>
-            </div>
+                        <Typography variant="h4" gutterBottom className={'dull-text'}>
+                            until
+                        </Typography>
+
+
+                        <Typography variant="h2" gutterBottom className={'occasion-value'}>
+                            {toTitleCase(countdownOccasion ? countdownOccasion : dayjs(countdownTime).format('LLL'))}
+                        </Typography>
+
+
+                    </div>
+                    <div className='create-own-button'>
+                        <Button variant="text" color={"info"} startIcon={<InfoIcon/>} href={routes.HOME}
+                                target="_blank">
+                            CREATE ANOTHER COUNTDOWN
+                        </Button>
+                    </div>
+                </>)}
         </>
     )
 }

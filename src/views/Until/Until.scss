@@ -1,4 +1,4 @@
-$primary-color: #E1F5FE;
+@import '../../styles/variables.scss';
 
 .until-container {
   width: 100vw;
@@ -9,11 +9,21 @@ $primary-color: #E1F5FE;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .create-own-button {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.occasion-value {
+  color: $secondary-color;
+  font-weight: bolder;
+}
+
+
+.dull-text {
+  color: $grey-color;
 }

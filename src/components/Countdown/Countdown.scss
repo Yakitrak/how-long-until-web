@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+
+.countdown-container {
+  text-align: left;
+  //margin-left: 2rem;
+}
+.countdown-value {
+  color: $secondary-color;
+  font-weight: bold;
+}

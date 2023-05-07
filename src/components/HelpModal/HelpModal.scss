@@ -1,7 +1,28 @@
-$primary-color: #E1F5FE;
+@import '../../styles/variables.scss';
 
 .help-modal {
     background-color: $primary-color;
     width: 100vw;
     height: 100vh;
 }
+
+.about-info {
+    padding: 20px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: $secondary-color;
+}
+.about-info p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 35px;
+    text-align: justify;
+}
+.about-info-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
