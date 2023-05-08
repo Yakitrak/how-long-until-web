@@ -22,6 +22,7 @@ const Until = () => {
             if (occasion) {
                 setCountdownOccasion(occasion)
             }
+            document.title = `How Long Until ${occasion ? occasion : dayjs(datetime).format('LLL')}`
         }
     }, [])
 
@@ -30,22 +31,18 @@ const Until = () => {
             {countdownTime && (
                 <>
                     <div className="until-container">
-                        <Typography variant="h4" gutterBottom className={'dull-text'}>
-                            There is
-                        </Typography>
-
+                        <div>
                         <Countdown targetDate={countdownTime}/>
 
                         <Typography variant="h4" gutterBottom className={'dull-text'}>
                             until
                         </Typography>
 
-
                         <Typography variant="h2" gutterBottom className={'occasion-value'}>
                             {toTitleCase(countdownOccasion ? countdownOccasion : dayjs(countdownTime).format('LLL'))}
                         </Typography>
 
-
+                        </div>
                     </div>
                     <div className='create-own-button'>
                         <Button variant="text" color={"info"} startIcon={<InfoIcon/>} href={routes.HOME}

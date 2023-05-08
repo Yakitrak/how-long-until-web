@@ -40,11 +40,10 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({targetDate}) => {
             const hoursLeft = Math.floor(minutesLeft / MINUTES_IN_HOUR);
             const daysLeft = Math.floor(hoursLeft / HOURS_IN_DAY);
             const monthsLeft = Math.floor(daysLeft / DAYS_IN_MONTH);
-
             const yearsLeft = Math.floor(monthsLeft / 12);
             const remainingMonths = monthsLeft % 12;
 
-              timeLeft = {
+            timeLeft = {
                 years: yearsLeft,
                 months: remainingMonths,
                 days: daysLeft % DAYS_IN_MONTH,
@@ -67,8 +66,13 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({targetDate}) => {
 
     const {days, hours, minutes, seconds, months, years} = timeLeft;
 
+    const prefixText = (timeLeft.years === 1 || timeLeft.months === 1 || timeLeft.days === 1 || timeLeft.hours === 1 || timeLeft.minutes === 1 || timeLeft.seconds === 1) ? "There is" : "There are";
     return (
-        <div className="countdown-container">
+        <>
+            <Typography variant="h4" gutterBottom className={'dull-text'}>
+                {prefixText}
+            </Typography>
+
             {years > 0 && (
                 <Typography variant="h2" gutterBottom>
                     <span className={'countdown-value'}>{years}</span> {years > 1 ? "years" : "year"}
@@ -97,7 +101,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({targetDate}) => {
             <Typography variant="h2" gutterBottom>
                 <span className={'countdown-value'}>{seconds}</span> {seconds > 1 ? "seconds" : "second"}
             </Typography>
-        </div>
+        </>
     );
 };
 

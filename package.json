@@ -1,5 +1,6 @@
 {
   "name": "how-long-until-web",
+  "author": "Kartikay Jainwal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  text-align: left;
 }
 
 .create-own-button {
@@ -20,7 +19,7 @@
 
 .occasion-value {
   color: $secondary-color;
-  font-weight: bolder;
+  font-weight: bold !important;
 }
 
 

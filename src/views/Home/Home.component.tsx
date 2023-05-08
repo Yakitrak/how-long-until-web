@@ -28,7 +28,7 @@ const Home = () => {
 
     useEffect(() => {
         const params = new URLSearchParams();
-        if (datetime?.toISOString() && isDateInFuture(datetime)) {
+        if (datetime?.isValid() && datetime?.toISOString() && isDateInFuture(datetime)) {
             params.append("datetime", datetime?.toISOString())
             if (occasion) {
                 params.append("occasion", occasion)
