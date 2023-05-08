@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import "./Until.scss"
-import {routes} from "../../constants/routes";
+import {routes} from "../../common/routes";
 import {Button, Typography} from '@mui/material';
 import Countdown from "../../components/Countdown/Countdown.component";
 import InfoIcon from "@mui/icons-material/Info";

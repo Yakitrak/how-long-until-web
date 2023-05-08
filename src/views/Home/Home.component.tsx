@@ -6,6 +6,8 @@ import LinkFieldWithButtons from "../../components/LinkFieldWithButtons/LinkFiel
 import "./Home.scss"
 import InfoIcon from '@mui/icons-material/Info';
 import HelpModal from "../../components/HelpModal/HelpModal.component";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 
 const Home = () => {
     const [datetime, setDateTime] = React.useState<Dayjs | null>(dayjs().hour(23).minute(59).second(0).millisecond(0));
@@ -16,11 +18,11 @@ const Home = () => {
     const [openModal, setOpenModal] = React.useState(false);
 
     const handleCopyUrlToClipboard = () => {
-        navigator.clipboard.writeText(url)
+        navigator.clipboard?.writeText(url)
         setOpenSnack(true)
     }
 
-    const  isDateInFuture = (date: Dayjs) => {
+    const isDateInFuture = (date: Dayjs) => {
         const inputDate = dayjs(date);
         const currentDate = dayjs();
         return inputDate.isAfter(currentDate);
@@ -61,15 +63,18 @@ const Home = () => {
                         className={'create-input'}
                     />
 
-                    <DateTimePicker
-                        label="When is it?"
-                        value={datetime}
-                        disablePast
-                        onChange={(newValue) => setDateTime(newValue)}
-                        format={"DD/MM/YYYY HH:mm"}
-                        className={'create-input'}
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DateTimePicker
+                            label="When is it?"
+                            value={datetime}
+                            disablePast
+                            onChange={(newValue) => setDateTime(newValue)}
+                            format={"DD/MM/YYYY HH:mm"}
+                            className={'create-input'}
 
-                    />
+                        />
+                    </LocalizationProvider>
+
                 </div>
 
                 <div className={'link-container'}>
