@@ -15,7 +15,7 @@ const Until = () => {
         const datetime = urlParams.get('datetime');
         const occasion = urlParams.get('occasion');
 
-        if (!datetime) {
+        if (!datetime || isNaN(Date.parse(datetime))) {
             window.location.href = routes.HOME
         } else {
             setCountdownTime(new Date(datetime))
@@ -31,23 +31,29 @@ const Until = () => {
             {countdownTime && (
                 <>
                     <div className="until-container">
-                        <div>
-                        <Countdown targetDate={countdownTime}/>
 
-                        <Typography variant="h4" gutterBottom className={'dull-text'}>
-                            until
-                        </Typography>
+                        {countdownTime.getTime() > Date.now() ? (
+                            <div data-testid={"countdown-progress"}>
+                                <Countdown targetDate={countdownTime}/>
+                                <Typography variant="h4" gutterBottom className={'dull-text'}>
+                                    until
+                                </Typography>
+                                <Typography variant="h2" gutterBottom className={'occasion-value'}>
+                                    {toTitleCase(countdownOccasion ? countdownOccasion : dayjs(countdownTime).format('LLL'))}
+                                </Typography>
 
-                        <Typography variant="h2" gutterBottom className={'occasion-value'}>
-                            {toTitleCase(countdownOccasion ? countdownOccasion : dayjs(countdownTime).format('LLL'))}
-                        </Typography>
-
-                        </div>
+                            </div>) : (
+                            <div>
+                                <Typography variant="h2" gutterBottom className={'occasion-value'} data-testid={'countdown-over'}>
+                                    {toTitleCase(countdownOccasion ? countdownOccasion : dayjs(countdownTime).format('LLL'))} is here
+                                </Typography>
+                            </div>)}
                     </div>
                     <div className='create-own-button'>
-                        <Button variant="text" color={"info"} startIcon={<InfoIcon/>} href={routes.HOME}
-                                target="_blank">
-                            CREATE ANOTHER COUNTDOWN
+                        <Button variant="text" color={"info"} startIcon={<InfoIcon/>} onClick={
+                            () => window.open(routes.HOME, "_blank")
+                        }>
+                            Create Another Countdown
                         </Button>
                     </div>
                 </>)}

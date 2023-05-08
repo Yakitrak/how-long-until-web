@@ -32,6 +32,7 @@ describe('Home', () => {
         render(<Home/>);
         // Act
         fireEvent.change(screen.getByLabelText('When is it?'), {target: {value: 'invalid date'}})
+        fireEvent.change(screen.getByLabelText('What is the occasion?'), {target: {value: 'my birthday'}})
         // Assert
         expect(screen.getByText('Copy Link')).toBeDisabled();
         expect(screen.getByText('Visit Link')).toBeDisabled();
@@ -73,8 +74,4 @@ describe('Home', () => {
         expect(screen.getByRole('dialog')).toBeInTheDocument();
         expect(screen.getByText('How it works?')).toBeInTheDocument();
     })
-
-
-
-
 })

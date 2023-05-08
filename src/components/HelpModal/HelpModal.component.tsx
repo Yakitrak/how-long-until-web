@@ -19,6 +19,7 @@ const HelpModal = ({
             open={open}
             onClose={handleClose}
             fullScreen
+            data-testid={'help-modal'}
         >
             <DialogContent className={'help-modal'}>
                 <IconButton

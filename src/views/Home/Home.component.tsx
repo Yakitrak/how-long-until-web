@@ -2,12 +2,13 @@ import React, {useEffect} from 'react';
 import {Button, Snackbar, TextField, Typography} from '@mui/material';
 import dayjs, {Dayjs} from 'dayjs';
 import {DateTimePicker} from '@mui/x-date-pickers/DateTimePicker';
-import LinkFieldWithButtons from "../../components/LinkFieldWithButtons/LinkFieldWithButtons.component";
 import "./Home.scss"
 import InfoIcon from '@mui/icons-material/Info';
 import HelpModal from "../../components/HelpModal/HelpModal.component";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 const Home = () => {
     const [datetime, setDateTime] = React.useState<Dayjs | null>(dayjs().hour(23).minute(59).second(0).millisecond(0));
@@ -78,18 +79,22 @@ const Home = () => {
                 </div>
 
                 <div className={'link-container'}>
-                    <LinkFieldWithButtons
-                        label="Your Countdown Link"
-                        InputProps={{
-                            readOnly: true,
-                        }}
-                        url={url}
-                        disableButtons={!isUrlValid}
-                        onCopyClick={handleCopyUrlToClipboard}
-                        onVisitClick={() => window.open(url, "_blank")}
-                        copyText={"Copy Link"}
-                        visitText={"Visit Link"}
-                    />
+                    <Button
+                        variant="contained"
+                        onClick={handleCopyUrlToClipboard}
+                        disabled={!isUrlValid}
+                        startIcon={<ContentCopyIcon/>}
+                    >
+                        Copy Link
+                    </Button>
+                    <Button
+                        endIcon={<NavigateNextIcon/>}
+                        variant="outlined"
+                        onClick={() => window.open(url, "_blank")}
+                        disabled={!isUrlValid}
+                    >
+                        Visit Link
+                    </Button>
                 </div>
 
 

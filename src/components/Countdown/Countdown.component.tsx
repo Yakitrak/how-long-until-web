@@ -69,40 +69,42 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({targetDate}) => {
     const prefixText = (timeLeft.years === 1 || timeLeft.months === 1 || timeLeft.days === 1 || timeLeft.hours === 1 || timeLeft.minutes === 1 || timeLeft.seconds === 1) ? "There is" : "There are";
     return (
         <>
-            <Typography variant="h4" gutterBottom className={'dull-text'}>
-                {prefixText}
-            </Typography>
+            {!(years === 0 && months === 0 && days === 0 && hours === 0 && minutes === 0 && seconds === 0) && (
+                <>
+                    <Typography variant="h4" gutterBottom className={'dull-text'}>
+                        {prefixText}
+                    </Typography>
 
-            {years > 0 && (
-                <Typography variant="h2" gutterBottom>
-                    <span className={'countdown-value'}>{years}</span> {years > 1 ? "years" : "year"}
-                </Typography>
-            )}
-            {months > 0 && (
-                <Typography variant="h2" gutterBottom>
-                    <span className={'countdown-value'}>{months}</span> {months > 1 ? "months" : "month"}
-                </Typography>
-            )}
-            {days > 0 && (
-                <Typography variant="h2" gutterBottom>
-                    <span className={'countdown-value'}>{days}</span> {days > 1 ? "days" : "day"}
-                </Typography>
-            )}
-            {hours > 0 && (
-                <Typography variant="h2" gutterBottom>
-                    <span className={'countdown-value'}>{hours}</span> {hours > 1 ? "hours" : "hour"}
-                </Typography>
-            )}
-            {minutes > 0 && (
-                <Typography variant="h2" gutterBottom>
-                    <span className={'countdown-value'}>{minutes}</span> {minutes > 1 ? "minutes" : "minute"}
-                </Typography>
-            )}
-            <Typography variant="h2" gutterBottom>
-                <span className={'countdown-value'}>{seconds}</span> {seconds > 1 ? "seconds" : "second"}
-            </Typography>
-        </>
-    );
-};
+                    {years > 0 && (
+                        <Typography variant="h2" gutterBottom>
+                            <span className={'countdown-value'}>{years}</span> {years > 1 ? "years" : "year"}
+                        </Typography>
+                    )}
+                    {months > 0 && (
+                        <Typography variant="h2" gutterBottom>
+                            <span className={'countdown-value'}>{months}</span> {months > 1 ? "months" : "month"}
+                        </Typography>
+                    )}
+                    {days > 0 && (
+                        <Typography variant="h2" gutterBottom>
+                            <span className={'countdown-value'}>{days}</span> {days > 1 ? "days" : "day"}
+                        </Typography>
+                    )}
+                    {hours > 0 && (
+                        <Typography variant="h2" gutterBottom>
+                            <span className={'countdown-value'}>{hours}</span> {hours > 1 ? "hours" : "hour"}
+                        </Typography>
+                    )}
+                    {minutes > 0 && (
+                        <Typography variant="h2" gutterBottom>
+                            <span className={'countdown-value'}>{minutes}</span> {minutes > 1 ? "minutes" : "minute"}
+                        </Typography>
+                    )}
+                    <Typography variant="h2" gutterBottom>
+                        <span className={'countdown-value'}>{seconds}</span> {seconds > 1 ? "seconds" : "second"}
+                    </Typography>
+                </>)}
+        </>)
+}
 
 export default CountdownTimer;
