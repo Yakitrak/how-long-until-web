@@ -3,7 +3,7 @@ import './Until.scss'
 import { routes } from '../../common/routes'
 import { Button, Typography } from '@mui/material'
 import Countdown from '../../components/Countdown/Countdown.component'
-import InfoIcon from '@mui/icons-material/Info'
+import AddIcon from '@mui/icons-material/Add'
 import dayjs from 'dayjs'
 
 const Until = (): JSX.Element => {
@@ -52,11 +52,9 @@ const Until = (): JSX.Element => {
                             </div>)}
                     </div>
                     <div className='create-own-button'>
-                        <Button variant="text" color={'info'} startIcon={<InfoIcon/>} onClick={
+                        <Button variant="text" size={'small'} color={'info'} startIcon={<AddIcon/>} onClick={
                             () => window.open(routes.HOME, '_blank')
-                        }>
-                            Create Another Countdown
-                        </Button>
+                        }>Create Countdown</Button>
                     </div>
                 </>)}
         </>

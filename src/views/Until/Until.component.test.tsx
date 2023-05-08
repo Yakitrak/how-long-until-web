@@ -100,7 +100,7 @@ describe('Until', () => {
     })
   })
 
-  describe('when the "Create Another Countdown" button is clicked', () => {
+  describe('when the "Create Countdown" button is clicked', () => {
     it('should open home page in another tab', () => {
       // Arrange
       const openSpy = jest.spyOn(window, 'open')
@@ -113,7 +113,7 @@ describe('Until', () => {
       })
       // Act
       render(<Until/>)
-      fireEvent.click(screen.getByText('Create Another Countdown'))
+      fireEvent.click(screen.getByText('Create Countdown'))
       // Assert
       expect(openSpy).toHaveBeenCalledWith(expect.anything(), '_blank')
     })

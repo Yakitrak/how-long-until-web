@@ -2,7 +2,7 @@
 
 .until-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: $primary-color;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 }
 
 .create-own-button {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
 }
@@ -21,7 +21,6 @@
   color: $secondary-color;
   font-weight: bold !important;
 }
-
 
 .dull-text {
   color: $grey-color;
