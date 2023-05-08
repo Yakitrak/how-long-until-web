@@ -1,20 +1,19 @@
-import React from 'react';
-import {Button, Dialog, DialogContent, IconButton, Typography} from "@mui/material";
-import GithubIcon from "@mui/icons-material/GitHub";
-import CloseIcon from '@mui/icons-material/Close';
-import "./HelpModal.scss"
+import React from 'react'
+import { Button, Dialog, DialogContent, IconButton, Typography } from '@mui/material'
+import GithubIcon from '@mui/icons-material/GitHub'
+import CloseIcon from '@mui/icons-material/Close'
+import './HelpModal.scss'
 
-type HelpModalProps = {
-    open: boolean;
-    handleClose: () => void;
+interface HelpModalProps {
+  open: boolean
+  handleClose: () => void
 }
 const HelpModal = ({
-                       open,
-                       handleClose
-                   }: HelpModalProps
-) => {
-
-    return (
+  open,
+  handleClose
+}: HelpModalProps
+): JSX.Element => {
+  return (
         <Dialog
             open={open}
             onClose={handleClose}
@@ -26,17 +25,17 @@ const HelpModal = ({
                     aria-label="close"
                     onClick={handleClose}
                     sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: (theme) => theme.palette.grey[500],
+                      position: 'absolute',
+                      right: 8,
+                      top: 8,
+                      color: (theme) => theme.palette.grey[500]
                     }}
                 >
                     <CloseIcon/>
                 </IconButton>
 
                 <div className={'about-info'}>
-                    <Typography variant="h2" gutterBottom style={{marginBottom: 40}}>How it works?</Typography>
+                    <Typography variant="h2" gutterBottom style={{ marginBottom: 40 }}>How it works?</Typography>
 
                     <Typography variant="body1" gutterBottom>
                         This is a simple web app that allows you to create a countdown timer for a specific <span
@@ -49,7 +48,6 @@ const HelpModal = ({
                     <Button onClick={handleClose} variant="contained"> Create Now</Button>
                 </div>
 
-
                 <div className='about-info-corner'>
                     <Button href={'https://github.com/Yakitrak/how-long-until-web'} target={'_blank'}>
                         <IconButton aria-label="delete">
@@ -59,7 +57,7 @@ const HelpModal = ({
                 </div>
             </DialogContent>
         </Dialog>
-    )
+  )
 }
 
-export default HelpModal;
+export default HelpModal

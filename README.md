@@ -46,3 +46,8 @@ or for live reloading
 ```zsh
 npm run test:watch
 ```
+
+## Linting
+```zsh
+npm run lint
+```

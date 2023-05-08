@@ -1,20 +1,19 @@
-import React from 'react';
+import React from 'react'
 import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Navigate
-} from "react-router-dom";
-import Home from "./views/Home/Home.component";
-import Until from "./views/Until/Until.component";
-import {routes} from "./common/routes";
-import dayjs from "dayjs";
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom'
+import Home from './views/Home/Home.component'
+import Until from './views/Until/Until.component'
+import { routes } from './common/routes'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
-const relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
-
-function App() {
-    return (
+function App (): JSX.Element {
+  return (
         <BrowserRouter>
             <Routes>
                 <Route path={routes.HOME} element={<Home/>}/>
@@ -23,7 +22,6 @@ function App() {
             </Routes>
         </BrowserRouter>
 
-
-    );
+  )
 }
-export default App;
+export default App
