@@ -21,8 +21,10 @@ npm start
 
 #### Home
 `/` - The home page:
+
 <img src="./docs/home.png" width="400px">
 <img src="./docs/help.png" width="400px">
+
 Contains a form to create a new countdown timer. There is a help button which will display a modal with instructions on how to use the app.
 
 #### Until 
