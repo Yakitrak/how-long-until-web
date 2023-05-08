@@ -2,11 +2,11 @@
 
 ## Description
 
-This web app lets you easily create URLs with a date/time and an optional occasion which will direct to a countdown
-timer. It's simple, minimal, and aesthetically beautiful - perfect for sharing and bookmarking. While there
+This web app lets you easily create URLs with a datetime and an optional occasion which will direct to a countdown
+timer. It's easy to use, minimal, and aesthetically beautiful - perfect for sharing and bookmarking. While there
 are similar websites, they seemed to be overly complicated to create, looked visually crowded, or not mobile friendly, so I decided to make my own. 
 
-It is currently deployed at [how-long.netlify.app](https://how-long.netlify.app/).
+It is currently deployed on [how-long.netlify.app](https://how-long.netlify.app/).
 
 ## Development
 ### Getting Started
@@ -43,7 +43,7 @@ The repository is set up with `jest` and `react-testing-library` so to run tests
 npm test
 ```
 
-or for live reloading
+or to run tests in watch mode:
 
 ```zsh
 npm run test:watch
